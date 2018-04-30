@@ -34,27 +34,77 @@ $app->run($app['request']);
 <head>
 	<title></title>
 </head>
-<link rel="stylesheet" type="text/css" href="index.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="index.js"></script>
+
+<link rel="stylesheet" type="text/css" href="index.css">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
+
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="index.css">
 <body>
-<div class="header"></div>
+<div class="container header">
+	<div class="col-md-offset-0 col-sm-offset-0">
+		<div class="row header"></div>
+	</div>
+</div>
+
 <div class="container logo">
 	<div class="row logo">
-		<div class="col-sm-3 col-sm-offset-0">
+		<div class="col-md-3 col-md-offset-0">
 			<h1>Vaimo store</h1>
 		</div>
-		<div class="col-sm-2 col-sm-offset-6">
-			<input type="button" value="your cart" name="">
+		<div class="col-md-3 col-md-offset-6">
+			
+			<button id="cart_button"><div id="cart_total"><span id="totalItems"></span> items in your cart €<b><span id="totalprice"></span></b></div></button>
+				<div id="cart">
+					<div id="cart_items">
+						
+						<table>
+							<td><div class="item_img"></div></td>
+							<td><span class="item_name"></span></td>
+							<td><span class="item_qty"></span></td>
+						
+						
+						</table>
+					</div>
+
+
+				</div>
+
+			<div class="col-sm-4 col-sm-offset-9" style="display: inline-block;">
+
+  			<a href="javascript:void(0);" style="font-size:30px;" class="icon" onclick="myFunction()">&#9776;</a>
+  			<button id="cart_button_xs" type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-shopping-cart"></span> 
+        </button>
+  		</div>
 		</div>
 	</div>
 </div>
+
+
+
+
+
+
+<div id="cart"></div>
+
+
+<div class="topnav" id="myTopnav">
+
+
+
 <div class="container menu">
-	<div class="row menu">
-		<div class="col-sm-8 col-sm-offset-0">
+	<div class="row menu topnav">
+		<div class="col-md-8 col-md-offset-0 col-sm-3 col-sm-offset-0">
+			<!-- <div class="topnav" id="myTopnav"> -->
+
 			<div class="menu_section">
 				<a href="#">Women</a>
 			</div>
@@ -71,7 +121,7 @@ $app->run($app['request']);
 			<div class="menu_section dropbtn">
 				<a href="#">Collections</a> 
 			</div>
-			
+
   <div class="dropdown-content">
     <div class="dropdown2"><a href="#" class="bropbtn2">2014</a>
     	<div class="dropdown-content2">
@@ -90,30 +140,36 @@ $app->run($app['request']);
 			<div class="menu_section sale">
 				<a href="#" style="color: red">Sale</a> 
 			</div>
+		
+				<div class="menu_section" id="menu_myaccount">
+					<a href="#">My account</a>
+				</div>
+
 		</div>
-		<div class="">
-			
-		</div>
-		<div class="col-sm-offset-9">
-			<div class="menu_section">
-				<a href="#">My account</a>
-			</div>
-		</div>
-		<div class="col-sm-offset-0 col-sm-11">
+		<div class="col-md-offset-0 col-md-11">
 			<div id="menu_underline"></div>
 		</div>
+
+		
 	</div>
 </div>
+
+
+
+</div>
+
+
+<!-- </div> -->
 <div class="container banner">
 	<div class="row banner">
-		<div class="col-sm-6 col-sm-offset-0">
+		<div class="col-md-6 col-md-offset-0 col-sm-offset-0">
 			<img src="img/fas2.jpg" id="banner_image">
 			<div class="text">
 				<h2>Get ready for autumn<h2>
 				<p>We have prepared everything for you</p>
 			</div>
 		</div>
-		<div class="col-sm-5 col-sm-offset-0">
+		<div class="col-md-5 col-md-offset-0 col-sm-10 col-sm-offset-0">
 			<div id="banner_text">
 				<h1>This is vaimo store</h1>
 				<h2>Your one-stop fasion destination</h2>
@@ -125,23 +181,20 @@ $app->run($app['request']);
 <div class="container favourites">
 
 	<div class="row favourites">
-		<div class="col-sm-1 col-sm-offset-0">
+		<div class="col-md-1 col-md-offset-0 col-sm-4 col-sm-offset-0">
 			<hr>
 		</div>
-		<div class="col-sm-3 col-sm-offset-0">
+		<div class="col-md-3 col-md-offset-0 col-sm-5 col-sm-offset-0">
 			<h2>Our favourites</h2>
 		</div>
-		<div class="col-sm-offset-0">
+		<div class="col-md-offset-0 col-sm-offset-0">
 			<hr>
-		</div>
-		<div class=" col-sm-offset-0 line">
-			<p></p>
 		</div>
 	</div>
 </div>
 <div class="container products">
 	<div class="row products">
-		<div class="col-sm-3 col-sm-offset-0">
+		<div class="col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-0">
 			<img src="img/products/belt.jpg" class="product_image">
 			<div class="heading">
 				<div>Belt</div>
@@ -149,7 +202,7 @@ $app->run($app['request']);
 				<input type="button" value="Add to cart" name="">
 			</div>
 		</div>
-		<div class="col-sm-3 col-sm-offset-0">
+		<div class="col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-0">
 			<img src="img/products/hat.jpg" class="product_image">
 			<div class="heading">
 				<div>Hat</div>
@@ -157,7 +210,7 @@ $app->run($app['request']);
 				<input type="button" value="Add to cart" name="">
 			</div>
 		</div>
-		<div class="col-sm-3 col-sm-offset-0">
+		<div class="col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-0">
 			<img src="img/products/scarf.jpg" class="product_image">
 			<div class="heading">
 				<div>Scarf</div>
@@ -166,7 +219,7 @@ $app->run($app['request']);
 				<!-- <div class="addToCart_button">Add to cart</div> -->
 			</div>
 		</div>
-		<div class="col-sm-3 col-sm-offset-0">
+		<div class="col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-0">
 			<img src="img/products/bag.jpg" class="product_image">
 			<div class="heading">
 				<div>Bag</div>
@@ -179,28 +232,50 @@ $app->run($app['request']);
 <div id="bottom">
 <div class="container bottom">
 	<div class="row bottom">
-		<div class="col-sm-3 col-sm-offset-0">
+		<div class="col-md-3 col-md-offset-0 col-sm-offset-1">
 			<div class="heading">Top categories</div>
-			<div>Women</div>
-			<div>Men</div>
-			<div>Junior</div>
-			<div>Accesories</div>
+			<div><a href="#">Women</a></div>
+			<div><a href="#">Men</a></div>
+			<div><a href="#">Junior</a></div>
+			<div><a href="#">Accesories</a></div>
 		</div>
-		<div class="col-sm-3 col-sm-offset-0">
+		<div class="col-md-3 col-md-offset-0 col-sm-offset-1  ">
 			<div class="heading">Customer service</div>
-			<div>Returns</div>
-			<div>Shipping</div>
-			<div>About us</div>
-			<div>Contact us</div>
+			<div><a href="#">Returns</a></div>
+			<div><a href="#">Shipping</a></div>
+			<div><a href="#">About us</a></div>
+			<div><a href="#">Contact us</a></div>
 		</div>
-		<div class="col-sm-4 col-sm-offset-2">
+		<div class="col-md-4 col-md-offset-2  col-sm-offset-1">
 			<div class="heading">Newsletter subscribe</div>
-			<input type="text" name="email" placeholder="">
-			<!-- <div id="subscribe_button">Subscribe</div> -->
-			<input type="button" name="Subscribe" value="Subscribe">
+			<form method="post">
+			<input type="text" name="email" value="" placeholder="" id="subscribe_input">
+			<input type="button" name="Subscribe" value="Subscribe" id="subscribe_button">
+			<!-- <span class="error"></span> -->
+
+			<div id="subscribtion_loading" class="subscribtion_status">Subscribtion loading</div>
+			<div id="subscribtion_succesfull" class="subscribtion_status">Subscribtion Succesfull</div>
+			<div id="subscribtion_failed" class="subscribtion_status">Subscribtion failed</div>
+			</form>
+
+
 		</div>
 	</div>
 </div>
 </div>
 </body>
+<script type="text/javascript">
+	function myFunction() {
+    var x = document.getElementById("myTopnav");
+    var y = document.getElementById("menu_myaccount");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+        y.style = "display: block";
+    } else {
+        x.className = "topnav";
+        y.style = "display: none";
+
+    }
+}
+</script>
 </html>
