@@ -1,0 +1,4 @@
+function myFunciton()
+{
+   alert ("meow");
+}
